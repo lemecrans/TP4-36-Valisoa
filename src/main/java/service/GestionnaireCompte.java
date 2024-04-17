@@ -6,6 +6,7 @@ package service;
 
 import entity.CompteBancaire;
 import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -29,7 +30,7 @@ import java.util.List;
       "useLegacyDatetimeCode=false"
     }
 )
-@RequestScoped
+@ApplicationScoped
 public class GestionnaireCompte {
     @PersistenceContext(unitName = "banquePU")
     private EntityManager em;
@@ -39,9 +40,12 @@ public class GestionnaireCompte {
       em.persist(c);
     }
     public void creerCompte(CompteBancaire c) {
+        persist(c);
     }
     List<CompteBancaire> getAllComptes() {
         return null;
     }
-    
+
+    public GestionnaireCompte() {
+    }
 }
