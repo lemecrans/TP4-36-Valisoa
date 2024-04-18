@@ -17,7 +17,6 @@ import service.GestionnaireCompte;
 public class CDIInit {
     @Inject
     GestionnaireCompte users;
-    
     @Transactional
     public void init(
         @Observes 
