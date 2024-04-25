@@ -19,7 +19,7 @@ import java.io.Serializable;
  * @author user
  */
 @Entity
-@Table(name = "CompteBancaire")
+@Table(name = "comptebancaire")
 @NamedQueries({
     @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),
     @NamedQuery(name = "CompteBancaire.findByCustomerId", query = "SELECT c FROM CompteBancaire c WHERE c.id = :id"),
