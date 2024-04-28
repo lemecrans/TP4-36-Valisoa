@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+    <f:metadata>
+        <f:viewParam name="id" value="#{transaction.id}"
+                     required="true"/>
+        <f:viewAction action="#{transaction.loadCompte}"/>
+    </f:metadata>
+    
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/template_defaut.xhtml">
+
+            <ui:define name="top">
+                Transaction
+            </ui:define>
+
+            <ui:define name="content">
+                
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h2><h:message for="error"/></h2>
+                        <h:outputLabel value="ID Compte :" for="idcompte" /><h:outputText value="#{transaction.compte.id}" />
+                        <h:outputLabel value="Propriétaire :" for="idcompte" /><h:outputText value="#{transaction.compte.nom}" />
+                        <h:outputLabel value="Solde :" for="idcompte" /><h:outputText value="#{transaction.compte.solde}" />
+                        <h:selectOneMenu id="act" value="#{transaction.act}">
+                            <f:selectItem itemLabel="Dépôt" itemValue="1" />
+                            <f:selectItem itemLabel="Retrait" itemValue="2" />
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Montant :" for="idcompte" /><h:inputText id="montant" size="3" value="#{transaction.montant}" />
+                        <h:commandButton id="transfert" value="Valider" action="#{transaction.trans}"><f:ajax event="keyup" render="resultat" /></h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

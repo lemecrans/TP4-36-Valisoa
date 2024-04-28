@@ -17,6 +17,13 @@
         <p:dataTable value="#{compteBean.comptelist}" var="item">
             <p:column>
                <f:facet name="header">
+                   <h:outputText value="ID"/>
+               </f:facet>
+               <h:link outcome="transaction?id=#{item.id}" value="#{item.id}"/>
+            </p:column>
+                
+            <p:column>
+               <f:facet name="header">
                    <h:outputText value="nom"/>
                </f:facet>
                <h:outputText value="#{item.nom}"/>
