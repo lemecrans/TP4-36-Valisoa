@@ -17,6 +17,7 @@
                 <h:form>
                 <h1><h:outputText value="Formulaire de transfert"/></h1>
                 <h:panelGrid columns="3">
+                    <h2><h:message for="error"/></h2>
                     <h:outputLabel value="Compte Source ID:" for="idcompte" />
                     <h:inputText id="idcomptes" value="#{transfertBean.idcomptes}" size="3" title="SourceID" required="true"
                      converterMessage="L'id est un nombre entier" />

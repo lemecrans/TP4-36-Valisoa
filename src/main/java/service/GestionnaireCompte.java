@@ -40,6 +40,7 @@ public class GestionnaireCompte {
     public void persist(CompteBancaire c) {
       em.persist(c);
     }
+    @Transactional
     public void creerCompte(CompteBancaire c) {
         persist(c);
     }

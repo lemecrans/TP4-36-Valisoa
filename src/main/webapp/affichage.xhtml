@@ -9,9 +9,10 @@
         <ui:composition template="./WEB-INF/templates/template_defaut.xhtml">
 
             <ui:define name="content">
-                <h:outputText value="#{transfertBean.othercompte.solde}" />
-                <h:outputText value="#{transfertBean.comptesource.solde}" />
-                <h:outputText value="#{transfertBean.montant}" />
+                <h:message for="error"/>
+                <h:outputText value="#{ajoutCompte.erreur}" />
+                <h:outputText value="#{ajoutCompte.compte.nom}" />
+                <h:outputText value="#{ajoutCompte.compte.solde}" />
             </ui:define>
 
         </ui:composition>

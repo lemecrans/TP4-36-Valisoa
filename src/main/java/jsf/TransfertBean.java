@@ -83,8 +83,12 @@ public class TransfertBean implements Serializable {
         try{
             othercompte = comptemanager.getcomptebyid(idcompted);
             comptesource = comptemanager.getcomptebyid(idcomptes);
-            if (othercompte == null || comptesource == null ) {
-                Util.messageErreur("Aucun compte avec cet id !"+idcompted, "Aucun compte avec cet id !", "form:source");
+            if (othercompte == null  ) {
+                Util.messageErreur("Aucun compte avec cet id !"+idcompted, "Aucun compte avec cet id !", "form:idcompted");
+                erreur = true;
+            }
+            if (comptesource == null  ) {
+                Util.messageErreur("Aucun compte avec cet id !"+idcomptes, "Aucun compte avec cet id !", "form:idcomptes");
                 erreur = true;
             }
             if (erreur) { // en cas d'erreur, rester sur la même page
@@ -102,6 +106,7 @@ public class TransfertBean implements Serializable {
                     
         }catch (Exception e){
             response="Transaction Error";
+            Util.messageErreur("Une erreur s'est produite, merci de réessayer!", "Une erreur s'est produite, merci de réessayer", "form:error");
             throw new RuntimeException("Erreur lors de la transaction : " + e.getMessage());
         }
     }
