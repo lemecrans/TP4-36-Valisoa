@@ -35,6 +35,17 @@
                </f:facet>
                <h:outputText value="#{item.solde}"/>
             </p:column>
+            <p:column>
+               <f:facet name="header">
+                   <h:outputText value="Action"/>
+               </f:facet>
+                <h:form>
+               <h:commandButton action="#{compteBean.drop(item)}" >
+                   <h:graphicImage name="del.png" />
+                </h:commandButton></h:form>
+                    
+            </p:column>
+            
         </p:dataTable>
     </ui:define>
 

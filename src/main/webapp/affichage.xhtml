@@ -10,9 +10,8 @@
 
             <ui:define name="content">
                 <h:message for="error"/>
-                <h:outputText value="#{transaction.act}" />
-                <h:outputText value="#{transaction.compte.nom}" />
-                <h:outputText value="#{transaction.compte.solde}" />
+                <h:outputText value="#{comptebean.cb}" />
+                <h:outputText value="#{comptebean.cb.nom}" />
             </ui:define>
 
         </ui:composition>

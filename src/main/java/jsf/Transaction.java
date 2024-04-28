@@ -72,7 +72,7 @@ public class Transaction {
             return "listeCompte"; 
         }catch (Exception e){
             Util.messageErreur("Une erreur s'est produite, merci de réessayer!", "Une erreur s'est produite, merci de réessayer", "form:error");
-            return "affichage";
+            return "listeCompte";
         }
         
     }

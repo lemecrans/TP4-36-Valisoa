@@ -52,6 +52,10 @@ public class GestionnaireCompte {
        return em.find(CompteBancaire.class, id); 
     }
     @Transactional
+    public void drop( CompteBancaire c) {
+       em.remove(em.merge(c));
+    }
+    @Transactional
     public void depot(CompteBancaire c, int montant){
         c.deposer(montant);
         em.merge(c);
