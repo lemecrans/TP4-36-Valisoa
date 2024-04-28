@@ -12,6 +12,8 @@
     </ui:define>
 
     <ui:define name="content">
+        <h:messages globalOnly="true" infoStyle="color: green;"
+                errorStyle="color: red;" />
         <p:dataTable value="#{compteBean.comptelist}" var="item">
             <p:column>
                <f:facet name="header">

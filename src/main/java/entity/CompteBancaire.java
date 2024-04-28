@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Table(name = "comptebancaire")
 @NamedQueries({
     @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),
-    @NamedQuery(name = "CompteBancaire.findByCustomerId", query = "SELECT c FROM CompteBancaire c WHERE c.id = :id"),
+    @NamedQuery(name = "CompteBancaire.findByCompteId", query = "SELECT c FROM CompteBancaire c WHERE c.id = :id"),
     @NamedQuery(name = "CompteBancaire.findByName", query = "SELECT c FROM CompteBancaire c WHERE c.nom = :nom")})
 public class CompteBancaire implements Serializable {
 
@@ -30,13 +30,13 @@ public class CompteBancaire implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
     @Column(name = "nom")
     private String nom;
     @Column(name = "solde")
     private int solde;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

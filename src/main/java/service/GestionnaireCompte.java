@@ -47,6 +47,21 @@ public class GestionnaireCompte {
        Query query = em.createNamedQuery("CompteBancaire.findAll");
        return query.getResultList();
     }
+    public CompteBancaire getcomptebyid( int id) {
+       return em.find(CompteBancaire.class, id); 
+    }
+    @Transactional
+    public void transfert(CompteBancaire othercompte, CompteBancaire comptesource,int montant){
+        try{
+            othercompte.deposer(montant);
+            comptesource.retirer(montant);
+            em.merge(othercompte);
+            em.merge(comptesource);
+        }catch (Exception e){
+            throw new RuntimeException("Erreur lors de la transaction : " + e.getMessage());
+        }
+        
+    }
 
     public GestionnaireCompte() {
     }
