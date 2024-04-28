@@ -16,13 +16,19 @@
             <ui:define name="content">
                 <h:form>
                 <h1><h:outputText value="Formulaire de transfert"/></h1>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="3">
                     <h:outputLabel value="Compte Source ID:" for="idcompte" />
-                    <h:inputText id="idcomptes" value="#{transfertBean.idcomptes}" title="SourceID" />
+                    <h:inputText id="idcomptes" value="#{transfertBean.idcomptes}" size="3" title="SourceID" required="true"
+                     converterMessage="L'id est un nombre entier" />
+                    <h:message for="idcomptes"/>
                     <h:outputLabel value="Compte destinataire ID:" for="idcompte" />
-                    <h:inputText id="idcompted" value="#{transfertBean.idcompted}" title="DestinataireID" />
+                    <h:inputText id="idcompted" value="#{transfertBean.idcompted}" size="3" title="DestinataireID" required="true"
+                     converterMessage="L'id est un nombre entier" />
+                    <h:message for="idcompted"/>
                     <h:outputLabel value="Montant:" for="montant" />
-                    <h:inputText id="montant" value="#{transfertBean.montant}" title="montant" />
+                    <h:inputText id="montant" value="#{transfertBean.montant}" size="3" title="montant" required="true"
+                     converterMessage="Le montant est un nombre entier" />
+                    <h:message for="montant"/>
                     <h:commandButton id="transfert" value="Transferer" action="#{transfertBean.transfereo}"><f:ajax event="keyup" render="resultat" /></h:commandButton>
                 </h:panelGrid>
                 </h:form>
